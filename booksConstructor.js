@@ -1,7 +1,6 @@
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
-  let fullInfo;
   this.title = title;
   this.author = author;
   this.pages = pages;
