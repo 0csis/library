@@ -7,8 +7,8 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 2fr;
-  background-image: url('images/vienna-1652804_1920.jpg');
   gap: 1rem;
+  background-image: url('images/vienna-1652804_1920.jpg');
 }
 
 header {
@@ -23,9 +23,22 @@ header {
   font-family: 'Times New Roman', Times, serif;
   font-size: 9rem;
   border-radius: 4rem;
-  width: 100rem;
   opacity: 60%;
   color: white;
   margin-top: 1rem;
   background-color: rgba(199, 36, 177, 0.2);
+  width: 100rem;
+}
+
+.new-book {
+  margin-top: -5rem;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  opacity: 90%;
+}
+
+.books {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  border-radius: 1rem;
 }
