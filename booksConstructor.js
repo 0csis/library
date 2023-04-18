@@ -16,7 +16,13 @@ function addBookToLibrary() {
   myLibrary.push(book);
 }
 
+const books = document.querySelector('#books');
+
 const book1 = new Book('libro1', 'a', 3, no);
+myLibrary.push(book);
 const book2 = new Book('libro2', 'b', 30, yes);
+myLibrary.push(book);
 const book3 = new Book('libro3', 'c', 13, no);
+myLibrary.push(book);
 const book4 = new Book('libro4', 'd', 300, yes);
+myLibrary.push(book);
