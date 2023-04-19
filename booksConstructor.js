@@ -7,28 +7,29 @@ function Book(title, author, pages, read) {
   this.Read = read;
 }
 
-function addBookToLibrary() {
-  const title = prompt("What's the title of the book?");
-  const author = prompt("What's the name of the author?");
-  const pages = prompt('How many pages does it have?');
-  const read = prompt('Have you read it already?');
-  const book = new Book(title, author, pages, read);
-  myLibrary.push(book);
-}
+const form = document.querySelector('form');
+const newBook = document.querySelector(".newBook");
+
+newBook.addEventListener('click', () => {
+  if (form.style.display === "none") {
+    // Change the display of the form to block
+    form.style.display = "block";
+  }
+});
+
+
+
 
 const books = document.querySelector('#books');
 
 const book1 = new Book('libro1', 'a', 3, 'no');
 myLibrary.push(book1);
-const book2 = new Book('libro2', 'b', 30, 'yes');
+const book2 = new Book('nanita', 'b', 30, 'yes');
 myLibrary.push(book2);
 const book3 = new Book('Brothers Karamazov', 'Fiodor Dostoyevksy', 13, 'no');
 myLibrary.push(book3);
 const book4 = new Book('libro4', 'd', 300, 'yes');
 myLibrary.push(book4);
-
-console.log(book1.title);
-console.log(Object.keys(myLibrary[0]).length);
 
 for (let i = 0; i < myLibrary.length; i++) {
   const book_container = document.createElement('div');
