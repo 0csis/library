@@ -16,8 +16,7 @@
 
     <div class="new-book">
       <button class="newBook">Add book</button>
-      <form onsubmit="getNewBook()" action="" method="get" style="display: none" class="bookForm">
-        
+      <form onsubmit="getNewBook(), event.preventDefault()" action="" method="" style="display:none" class="bookForm">
         <div class="form-control">
           <label for="title">Title</label>
           <input type="text" id="title">

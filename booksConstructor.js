@@ -20,12 +20,12 @@ newBook.addEventListener('click', () => {
 const books = document.querySelector('#books');
 
 function getNewBook(event) {
-  const title = document.getElementById('title').value ?
-    document.getElementById('title').value : '______';
-  const author =  document.getElementById('author').value ?
-    document.getElementById('author').value : "____";
-  const pages = document.getElementById('pages').value ?
-    document.getElementById('pages').value : '_____';
+  const title = document.getElementById('title').value
+    ? document.getElementById('title').value : '______';
+  const author = document.getElementById('author').value
+    ? document.getElementById('author').value : '____';
+  const pages = document.getElementById('pages').value
+    ? document.getElementById('pages').value : '_____';
   const read = document.getElementById('read').checked ? 'Yes' : 'No';
   addBookToLibrary(title, author, pages, read);
   document.querySelector('form').reset();
@@ -33,7 +33,7 @@ function getNewBook(event) {
 }
 
 function addBookToLibrary(title, author, pages, read) {
-  const book = new Book(title, author, pages, read)
+  const book = new Book(title, author, pages, read);
   myLibrary.push(book);
 
   const book_container = document.createElement('div');
