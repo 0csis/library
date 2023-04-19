@@ -8,36 +8,41 @@ function Book(title, author, pages, read) {
 }
 
 const form = document.querySelector('form');
-const newBook = document.querySelector(".newBook");
+const newBook = document.querySelector('.newBook');
 
 newBook.addEventListener('click', () => {
-  if (form.style.display === "none") {
+  if (form.style.display === 'none') {
     // Change the display of the form to block
-    form.style.display = "block";
+    form.style.display = 'block';
   }
 });
 
-
-
-
 const books = document.querySelector('#books');
 
-const book1 = new Book('libro1', 'a', 3, 'no');
-myLibrary.push(book1);
-const book2 = new Book('nanita', 'b', 30, 'yes');
-myLibrary.push(book2);
-const book3 = new Book('Brothers Karamazov', 'Fiodor Dostoyevksy', 13, 'no');
-myLibrary.push(book3);
-const book4 = new Book('libro4', 'd', 300, 'yes');
-myLibrary.push(book4);
+function getNewBook(event) {
+  const title = document.getElementById('title').value ?
+    document.getElementById('title').value : '______';
+  const author =  document.getElementById('author').value ?
+    document.getElementById('author').value : "____";
+  const pages = document.getElementById('pages').value ?
+    document.getElementById('pages').value : '_____';
+  const read = document.getElementById('read').checked ? 'Yes' : 'No';
+  addBookToLibrary(title, author, pages, read);
+  document.querySelector('form').reset();
+  form.style.display = 'none';
+}
 
-for (let i = 0; i < myLibrary.length; i++) {
+function addBookToLibrary(title, author, pages, read) {
+  const book = new Book(title, author, pages, read)
+  myLibrary.push(book);
+
   const book_container = document.createElement('div');
   book_container.classList.add('book_container');
   books.appendChild(book_container);
 
   const libro = document.createElement('div');
   libro.classList.add('libro');
+  const i = myLibrary.length - 1;
   for (let j = 0; j < Object.keys(myLibrary[i]).length; j++) {
     libro.textContent += `${Object.keys(myLibrary[i])[j]}: ${Object.values(myLibrary[i])[j]} `;
   }

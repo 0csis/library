@@ -16,7 +16,7 @@
 
     <div class="new-book">
       <button class="newBook">Add book</button>
-      <form action="" style="display: none" class="bookForm">
+      <form onsubmit="getNewBook()" action="" method="get" style="display: none" class="bookForm">
         
         <div class="form-control">
           <label for="title">Title</label>
@@ -28,11 +28,14 @@
         </div>
         <div class="form-control">
           <label for="pages">Pages</label>
-          <input type="text" id="pages">
+          <input type="number" id="pages">
         </div>
         <div class="form-control-check">
           <label for="read" class="read">Read</label>
           <input type="checkbox" id="read">
+        </div>
+        <div class="form-control">
+          <button class="add">Add</button>
         </div>
       </form>
     </div>
