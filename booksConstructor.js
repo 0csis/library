@@ -48,9 +48,11 @@ function addBookToLibrary(title, author, pages, read) {
   libro.classList.add('libro');
   libro.classList.add(`${myLibrary.length - 1}`);
   const i = myLibrary.length - 1;
-  for (let j = 0; j < Object.keys(myLibrary[i]).length; j++) {
+  for (let j = 0; j < Object.keys(myLibrary[i]).length - 1; j++) {
     libro.textContent += `${Object.keys(myLibrary[i])[j]}: ${Object.values(myLibrary[i])[j]} `;
   }
+  book.readStatus(libro);
+
   libro.appendChild(removeButton);
   book_container.appendChild(libro);
 
@@ -62,3 +64,30 @@ function addBookToLibrary(title, author, pages, read) {
     });
   });
 }
+
+Book.prototype.readStatus = function (bookName) {
+  const readButton = document.createElement('button');
+  if (this.Read == 'Yes') {
+    readButton.textContent = 'Read';
+    readButton.classList.add('beenRead');
+  } else {
+    readButton.textContent = 'Not read';
+    readButton.classList.add('notRead');
+  }
+  bookName.appendChild(readButton);
+  changeStatus(readButton);
+};
+
+const changeStatus = (button) => {
+  button.addEventListener('click', () => {
+    if (button.classList.contains('beenRead')) {
+      button.classList.remove('beenRead');
+      button.classList.add('notRead');
+      button.textContent = 'Not read';
+    } else {
+      button.classList.remove('notRead');
+      button.classList.add('beenRead');
+      button.textContent = 'Read';
+    }
+  });
+};
