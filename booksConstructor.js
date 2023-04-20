@@ -40,11 +40,25 @@ function addBookToLibrary(title, author, pages, read) {
   book_container.classList.add('book_container');
   books.appendChild(book_container);
 
+  const removeButton = document.createElement('button');
+  removeButton.textContent = 'Remove';
+  removeButton.setAttribute('id', 'removeBook');
+
   const libro = document.createElement('div');
   libro.classList.add('libro');
+  libro.classList.add(`${myLibrary.length - 1}`);
   const i = myLibrary.length - 1;
   for (let j = 0; j < Object.keys(myLibrary[i]).length; j++) {
     libro.textContent += `${Object.keys(myLibrary[i])[j]}: ${Object.values(myLibrary[i])[j]} `;
   }
+  libro.appendChild(removeButton);
   book_container.appendChild(libro);
+
+  // Remove book if the remove button is pressed
+  const removeButtons = document.querySelectorAll('#removeBook');
+  removeButtons.forEach((rmvBtn) => {
+    rmvBtn.addEventListener('click', () => {
+      rmvBtn.parentElement.parentElement.remove();
+    });
+  });
 }
